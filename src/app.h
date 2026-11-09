@@ -10,7 +10,9 @@ public:
     return instance;
   }
 
-  void run() {}
+  void exec() {}
+
+  void exit() {}
 
 private:
   App() = default;
