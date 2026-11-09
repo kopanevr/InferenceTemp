@@ -10,7 +10,7 @@
 
 //
 
-/// @brief 
+/// @brief
 class Logger : public nvinfer1::ILogger {
 public:
   explicit Logger(Severity severity = Severity::kWARNING)

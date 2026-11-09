@@ -1,9 +1,15 @@
 #include "app.h"
 
+//
+
 /// @brief
 /// @param argc
 /// @param argv
 /// @return
 int main(int argc, char **argv) {
-  App::getInstance().run();
+  const auto &app = App::getInstance();
+
+  app.exec();
+
+  return app.exit();
 }
