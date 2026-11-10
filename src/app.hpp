@@ -10,15 +10,15 @@ public:
     return instance;
   }
 
-  App(const &App) = delete;
-  App &operator=(const &App) = delete;
+  App(const App &) = delete;
+  App &operator=(const App &) = delete;
 
-  App(&&App) = delete;
-  App &operator=(&&App) = delete;
+  App(App &&) = delete;
+  App &operator=(App &&) = delete;
 
   void exec() {}
 
-  void exit() {}
+  int exit() {}
 
 private:
   App() = default;

@@ -8,7 +8,11 @@ add_executable(${PROJECT_NAME} main.cpp)
 
 set(TENSORRT_ROOT "${CMAKE_SOURCE_DIR}/thirdParty/TensorRT-11.4.1.31")
 
-target_include_directories(${PROJECT_NAME} PRIVATE "${TENSORRT_ROOT}/include")
+target_include_directories(
+    ${PROJECT_NAME} PRIVATE
+    "${CMAKE_SOURCE_DIR}/src"
+    "${TENSORRT_ROOT}/include"
+)
 
 target_link_directories(${PROJECT_NAME} PRIVATE "${TENSORRT_ROOT}/lib")
 

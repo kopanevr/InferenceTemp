@@ -1,4 +1,4 @@
-#include "app.h"
+#include "app.hpp"
 
 //
 
@@ -7,7 +7,7 @@
 /// @param argv
 /// @return
 int main(int argc, char **argv) {
-  const auto &app = App::getInstance();
+  auto &app = App::getInstance();
 
   app.exec();
 
