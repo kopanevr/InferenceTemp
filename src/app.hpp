@@ -16,9 +16,9 @@ public:
   App(App &&) = delete;
   App &operator=(App &&) = delete;
 
-  void exec() {}
+  void exec();
 
-  int exit() {}
+  int exit();
 
 private:
   App() = default;

@@ -4,9 +4,16 @@ project(TensorRT_App VERSION 0.0.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(${PROJECT_NAME} main.cpp)
+file(
+  GLOB_RECURSE
+  SOURCES
+  ${CMAKE_SOURCE_DIR}/src/*.cpp
+  main.cpp
+)
 
-set(TENSORRT_ROOT "${CMAKE_SOURCE_DIR}/thirdParty/TensorRT-11.4.1.31")
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+set(TENSORRT_ROOT "${CMAKE_SOURCE_DIR}/thirdParty/TensorRT-11.4.0.106")
 
 target_include_directories(
     ${PROJECT_NAME} PRIVATE
