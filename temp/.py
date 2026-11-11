@@ -1,15 +1,22 @@
-import 
+import torch
+import depth_pro
 
-def export_to_onnx(output_onnx="./models/depth_pro.onnx")
-    print("Загрузка модели ...")
+print("Загрузка модели ...")
 
-    input_shape = (1, 3, 1536, 1536)
+print(torch.version.cuda)
 
-    torch.onnx.export(
+device = torch.device("cuda")
+model, _ = depth_pro.create_model_and_transforms(device=device)
+model.eval()
 
-    )
+dummy_input = torch.randn(1, 3, 1536, 1536, device=device, dtype=torch.float32)
 
-    print("Экспорт успешно завершен!")
+torch.onnx.export(
+  model,
+  dummy_input,
+  "depth_pro.onnx",
+  input_names=["image"],
+  output_names=["depth", "focallength_px"]
+)
 
-if __name__ == "__main__":
-    export_depth_pro_to_onnx("./models/depth_pro.onnx")
+print("Экспорт успешно завершен!")
