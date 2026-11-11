@@ -3,8 +3,6 @@ import depth_pro
 
 print("Загрузка модели ...")
 
-print(torch.version.cuda)
-
 device = torch.device("cuda")
 model, _ = depth_pro.create_model_and_transforms(device=device)
 model.eval()
