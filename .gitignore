@@ -1,6 +1,6 @@
 build/
-models/.data
-models/.engine
+models/*.data
+models/*.engine
 thirdParty/
 
 .clang-format
