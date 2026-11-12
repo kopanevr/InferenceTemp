@@ -14,10 +14,13 @@ print("Загрузка модели ...")
 print(torch.version.cuda)
 
 device = torch.device("cuda")
-model, _ = depth_pro.create_model_and_transforms(device=device)
+model, _ = depth_pro.create_model_and_transforms(
+  device=device,
+  precision=torch.float16
+)
 model.eval()
 
-dummy_input = torch.randn(1, 3, 1536, 1536, device=device, dtype=torch.float32)
+dummy_input = torch.randn(1, 3, 1536, 1536, device=device, dtype=torch.float16)
 
 torch.onnx.export(
   model,
