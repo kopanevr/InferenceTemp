@@ -1,7 +1,17 @@
 import torch
 import depth_pro
+import torch.nn.functional as F
+
+orig_interpolate = F.interpolate
+
+def interpolate_no_antialias(*args, **kwargs):
+  kwargs['antialias'] = False
+  return orig_interpolate(*args, **kwargs)
+
+F.interpolate = interpolate_no_antialias
 
 print("Загрузка модели ...")
+print(torch.version.cuda)
 
 device = torch.device("cuda")
 model, _ = depth_pro.create_model_and_transforms(device=device)
