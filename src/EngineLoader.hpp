@@ -2,14 +2,18 @@
 
 //
 
+#include <string>
+
+//
+
 /// @brief
 class IEngineLoader {
 public:
-  virtual void load() = 0;
+  virtual bool load(const std::string &fileName) = 0;
 };
 
 /// @brief
 class EngineLoader final : public IEngineLoader {
 public:
-  void load() override {}
+  bool load(const std::string &fileName) override;
 };
