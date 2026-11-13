@@ -3,6 +3,7 @@
 //
 
 #include <fstream>
+#include <vector>
 
 //
 
@@ -15,5 +16,9 @@ bool EngineLoader::load(const std::string &fileName) {
     return false;
   }
 
+  file.seekg(0, std::ios::end);
+  const auto size = file.tellg();
+  file.seekg(0, std::ios::beg);
 
+  std::vector<char> buffer(size);
 }
