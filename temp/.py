@@ -13,8 +13,11 @@ F.interpolate = interpolate_no_antialias
 print("Загрузка модели ...")
 print(torch.version.cuda)
 
-device = torch.device("cuda")
+config = depth_pro.depth_pro.DEFAULT_MONODEPTH_CONFIG_DICT
+config.use_fov_head = False
+device = torch.device("cpu")
 model, _ = depth_pro.create_model_and_transforms(
+  config=config,
   device=device,
   precision=torch.float16
 )
